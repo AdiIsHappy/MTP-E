@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Anchor
   - SittingZone
+  - Book
   layers:
   - Default
   - TransparentFX
