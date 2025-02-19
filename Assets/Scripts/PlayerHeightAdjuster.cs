@@ -1,5 +1,6 @@
 using UnityEngine;
 using Unity.XR.CoreUtils;
+using UnityEngine.XR.Interaction.Toolkit.Locomotion.Teleportation;
 
 public class PlayerHeightAdjuster : MonoBehaviour
 {
@@ -17,6 +18,8 @@ public class PlayerHeightAdjuster : MonoBehaviour
     private XROrigin xrOrigin;
     private bool isSitting = false;
 
+
+
     void Start()
     {
         // Get the XR Origin component
@@ -28,6 +31,7 @@ public class PlayerHeightAdjuster : MonoBehaviour
 
         // Optionally set default height at start
         SetPlayerHeight(defaultHeight);
+
     }
 
     void OnTriggerEnter(Collider other)
@@ -73,4 +77,6 @@ public class PlayerHeightAdjuster : MonoBehaviour
         xrOrigin.CameraInOriginSpaceHeight = Mathf.Lerp(xrOrigin.CameraInOriginSpaceHeight, targetHeight, Time.deltaTime * 5f);
         */
     }
+
+
 }
