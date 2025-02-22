@@ -18,6 +18,7 @@ public class PlayerController : MonoBehaviour
     private XROrigin _xrOrigin;
     private bool _isSitting = false;
     private Coroutine _sittingCoroutine;
+    private VRShake _vrShake;
 
     private void Start()
     {
@@ -29,6 +30,11 @@ public class PlayerController : MonoBehaviour
         if (_xrOrigin == null)
         {
             Debug.LogError("No XROrigin component found on the GameObject.");
+        }
+        _vrShake = GetComponentInChildren<VRShake>(); // Get the VRShake component.  Adjust if needed.
+        if (_vrShake == null)
+        {
+            Debug.LogError("VRShake component not found!");
         }
 
         SetPlayerHeight(defaultHeight);
@@ -46,6 +52,11 @@ public class PlayerController : MonoBehaviour
             if (_sittingCoroutine != null)
             {
                 StopCoroutine(_sittingCoroutine);
+            }
+            
+            if (_vrShake != null)
+            {
+                _vrShake.DisableShake();
             }
 
             _sittingCoroutine = StartCoroutine(LerpHeight(_isSitting ? defaultHeight : sittingHeight));
@@ -66,7 +77,11 @@ public class PlayerController : MonoBehaviour
             yield return null;
         }
 
-        SetPlayerHeight(targetHeight); // Ensure we reach the exact target height.
+        SetPlayerHeight(targetHeight);
         _sittingCoroutine = null;
+        if (_vrShake != null)
+        {
+            _vrShake.EnableShake();
+        }
     }
 }

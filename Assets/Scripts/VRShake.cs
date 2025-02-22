@@ -1,15 +1,20 @@
+using Unity.XR.CoreUtils;
 using UnityEngine;
-using System.Collections;
 
 public class VRShake : MonoBehaviour
 {
     public float shakeMagnitude = 0.2f;
-    public float shakeDuration = 30f; // Set to 30 seconds
+    public float shakeDuration = 30f;
     public float shakeFrequency = 20f;
 
     private Transform _cameraTransform;
     private Vector3 _originalCameraPosition;
-    private bool _isShaking = false; // Flag to track if shaking is active
+    private float _shakeTimer = 0f;
+    private Vector3 _targetShakePosition;
+    private XROrigin _xrOrigin;
+
+    // Instead of a boolean flag, use a counter.  0 means shaking is enabled.
+    private int _shakeDisableRequests = 0;
 
     private void Start()
     {
@@ -22,60 +27,82 @@ public class VRShake : MonoBehaviour
             return;
         }
 
+        _xrOrigin = GameObject.FindFirstObjectByType<XROrigin>();
+        if (_xrOrigin == null)
+        {
+            Debug.LogError("XROrigin not found. Make sure this script is attached to the Origin Object.");
+            enabled = false;
+            return;
+        }
+
         _originalCameraPosition = _cameraTransform.localPosition;
         StartShake();
     }
 
-    public void StartShake()  // Renamed to StartShake
+    public void StartShake()
     {
-        if (!_isShaking) // Prevent restarting if already shaking
+        // Only start shaking if not currently disabled.
+        if (_shakeDisableRequests == 0)
         {
-            _isShaking = true;
-            StartCoroutine(ShakeCoroutine());
+            _shakeTimer = 0f;
+            SetNewTargetShakePosition();
         }
     }
 
-    public void StopShake() // Function to stop the shake
+    public void StopShake()
     {
-        _isShaking = false;
-        _cameraTransform.localPosition = _originalCameraPosition; // Restore position immediately
-        StopCoroutine(ShakeCoroutine()); // Important: Stop the coroutine
+        _shakeTimer = 0f;
+        _cameraTransform.localPosition = _originalCameraPosition;
+    }
+
+    // Call this to temporarily disable shaking.
+    public void DisableShake()
+    {
+        _shakeDisableRequests++;
+    }
+
+    // Call this to re-enable shaking.
+    public void EnableShake()
+    {
+        _shakeDisableRequests--;
+        if (_shakeDisableRequests < 0)
+        {
+            _shakeDisableRequests = 0; // Ensure it doesn't go negative.
+        }
+
+        // If shaking was previously disabled and now re-enabled, start it.
+        if (_shakeDisableRequests == 0)
+        {
+            StartShake();
+        }
     }
 
 
-    private IEnumerator ShakeCoroutine()
+    private void Update()
     {
-        float elapsedTime = 0f;
-        Vector3 targetPosition = _originalCameraPosition; // Initialize target position
-
-        while (elapsedTime < shakeDuration && _isShaking)
+        // Only shake if not disabled.
+        if (_shakeDisableRequests == 0)
         {
-            // Smoothly interpolate to the last random shake position
-            _cameraTransform.localPosition = Vector3.Lerp(_cameraTransform.localPosition, targetPosition, Time.deltaTime * shakeFrequency);
+            _shakeTimer += Time.deltaTime;
 
-            // Calculate the next target shake position. This is done here rather than every frame to make the shake more predictable.
-            if (Vector3.Distance(_cameraTransform.localPosition, targetPosition) < 0.01f)
+            _cameraTransform.localPosition = Vector3.Lerp(_cameraTransform.localPosition, _targetShakePosition, Time.deltaTime * shakeFrequency);
+
+            if (Vector3.Distance(_cameraTransform.localPosition, _targetShakePosition) < 0.01f)
             {
-                float x = Random.Range(-1f, 1f) * shakeMagnitude;
-                float y = Random.Range(-1f, 1f) * shakeMagnitude;
-                targetPosition = _originalCameraPosition + new Vector3(x, y, 0);
+                SetNewTargetShakePosition();
             }
 
-            elapsedTime += Time.deltaTime;
-            yield return null;
+            if (_shakeTimer >= shakeDuration)
+            {
+                StopShake(); // No need for coroutine, just stop immediately.
+            }
         }
-
-        StartCoroutine(SmoothReturn()); // Smoothly return after shake ends
-        _isShaking = false;
     }
 
-    private IEnumerator SmoothReturn()
+    private void SetNewTargetShakePosition()
     {
-        while (Vector3.Distance(_cameraTransform.localPosition, _originalCameraPosition) > 0.01f) // Return until close enough
-        {
-            _cameraTransform.localPosition = Vector3.Lerp(_cameraTransform.localPosition, _originalCameraPosition, Time.deltaTime * shakeFrequency);
-            yield return null;
-        }
-        _cameraTransform.localPosition = _originalCameraPosition; // Ensure exact original position
+        var x = Random.Range(-1f, 1f) * shakeMagnitude;
+        var y = Random.Range(-1f, 1f) * shakeMagnitude;
+        _targetShakePosition = new Vector3(x, y + _xrOrigin.CameraYOffset, 0);
     }
 }
