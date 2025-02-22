@@ -1,17 +1,72 @@
+using Unity.XR.CoreUtils;
 using UnityEngine;
+using UnityEngine.InputSystem;
+using System.Collections;
 
 public class PlayerController : MonoBehaviour
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    
-    void Start()
+    [SerializeField] private InputActionReference rightTriggerAction;
+    [SerializeField] private InputActionReference leftTriggerAction;
+    [Header("Height Settings")]
+    [Tooltip("Default standing height of the player.")]
+    public float defaultHeight = 1.8f;
+    [Tooltip("Sitting height to set when in the trigger.")]
+    public float sittingHeight = 1.0f;
+    [Tooltip("Time required to perform sitting in seconds.")]
+    public float sittingDuration = 0.1f;
+
+    private XROrigin _xrOrigin;
+    private bool _isSitting = false;
+    private Coroutine _sittingCoroutine;
+
+    private void Start()
     {
-        
+        if (rightTriggerAction == null || leftTriggerAction == null)
+        {
+            Debug.LogError("Trigger Action for sitting are not set");
+        }
+        _xrOrigin = GetComponent<XROrigin>();
+        if (_xrOrigin == null)
+        {
+            Debug.LogError("No XROrigin component found on the GameObject.");
+        }
+
+        SetPlayerHeight(defaultHeight);
     }
 
-    // Update is called once per frame
-    void Update()
+    private void SetPlayerHeight(float height)
     {
-        
+        _xrOrigin.CameraYOffset = height;
+    }
+
+    private void Update()
+    {
+        if (rightTriggerAction.action.triggered || leftTriggerAction.action.triggered)
+        {
+            if (_sittingCoroutine != null)
+            {
+                StopCoroutine(_sittingCoroutine);
+            }
+
+            _sittingCoroutine = StartCoroutine(LerpHeight(_isSitting ? defaultHeight : sittingHeight));
+            _isSitting = !_isSitting;
+        }
+    }
+
+    private IEnumerator LerpHeight(float targetHeight)
+    {
+        float startHeight = _xrOrigin.CameraYOffset;
+        float timer = 0f;
+
+        while (timer < sittingDuration)
+        {
+            timer += Time.deltaTime;
+            float newHeight = Mathf.Lerp(startHeight, targetHeight, timer / sittingDuration);
+            SetPlayerHeight(newHeight);
+            yield return null;
+        }
+
+        SetPlayerHeight(targetHeight); // Ensure we reach the exact target height.
+        _sittingCoroutine = null;
     }
 }

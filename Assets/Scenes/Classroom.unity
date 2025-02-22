@@ -3255,6 +3255,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 8298045291338814966, guid: 77e7c27b2c5525e4aa8cc9f99d654486, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1105581114}
+    - targetCorrespondingSourceObject: {fileID: 8298045291338814966, guid: 77e7c27b2c5525e4aa8cc9f99d654486, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1105581115}
     - targetCorrespondingSourceObject: {fileID: 7277802327471902857, guid: 77e7c27b2c5525e4aa8cc9f99d654486, type: 3}
       insertIndex: -1
       addedObject: {fileID: 589925806}
@@ -3276,9 +3279,23 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1fc77f0ec536e69489c5c49cbfa3ad05, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  defaultHeight: 0.1
-  sittingHeight: 0.5
   sittingZoneTag: SittingZone
+--- !u!114 &1105581115
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1105581113}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7bcc668b74ed7444487bb0fb9ab383b1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rightTriggerAction: {fileID: 83097790271614945, guid: c348712bda248c246b8c49b3db54643f, type: 3}
+  leftTriggerAction: {fileID: -5982496924579745919, guid: c348712bda248c246b8c49b3db54643f, type: 3}
+  defaultHeight: 1.36
+  sittingHeight: 0.4
 --- !u!1 &1107989665 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1256887342803240, guid: 0d7a21e247bd95b4bb0f03721763fab3, type: 3}
@@ -5006,6 +5023,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7954253496855450045, guid: 828bc71b79f69be47864cdec165fad21, type: 3}
+      propertyPath: shakeForceMagnitude
+      value: 0.05
+      objectReference: {fileID: 0}
+    - target: {fileID: 7954253496855450045, guid: 828bc71b79f69be47864cdec165fad21, type: 3}
       propertyPath: _shakeForceMagnitude
       value: 0.05
       objectReference: {fileID: 0}
@@ -5804,6 +5825,10 @@ PrefabInstance:
     - target: {fileID: 7954253496855450045, guid: 828bc71b79f69be47864cdec165fad21, type: 3}
       propertyPath: rotationMagnitude
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7954253496855450045, guid: 828bc71b79f69be47864cdec165fad21, type: 3}
+      propertyPath: shakeForceMagnitude
+      value: 0.05
       objectReference: {fileID: 0}
     - target: {fileID: 7954253496855450045, guid: 828bc71b79f69be47864cdec165fad21, type: 3}
       propertyPath: _shakeForceMagnitude
