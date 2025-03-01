@@ -133,6 +133,7 @@ public class UserManager : MonoBehaviour
         }
 
         string path = directoryPath + "/" + CurrentUser.RollNumber + ".json";
+        Debug.Log(path);
         string json = JsonConvert.SerializeObject(CurrentUser);
         System.IO.File.WriteAllText(path, json);
     }

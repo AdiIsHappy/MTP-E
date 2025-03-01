@@ -5,7 +5,6 @@ public class VRShake : MonoBehaviour
 {
     [Header("Shake Settings")]
     public float shakeMagnitude = 0.2f;
-    public float shakeDuration = 30f;
     public float shakeFrequency = 20f;
 
     private Transform _cameraTransform;
@@ -53,8 +52,6 @@ public class VRShake : MonoBehaviour
         _originalCameraPosition = _cameraTransform.localPosition;
     }
 
-    public void StopShake() { }
-
     // Call this to temporarily disable shaking.
     public void DisableShake()
     {
@@ -65,9 +62,10 @@ public class VRShake : MonoBehaviour
     public void EnableShake()
     {
         _shakeDisableRequests--;
-        if (_shakeDisableRequests < 0)
+        if (_shakeDisableRequests <= 0)
         {
             _shakeDisableRequests = 0; // Ensure it doesn't go negative.
+            SetNewTargetShakePosition();
         }
     }
 
@@ -77,21 +75,16 @@ public class VRShake : MonoBehaviour
         {
             if (_shakeDisableRequests == 0)
             {
+                if (Vector3.Distance(_cameraTransform.localPosition, _targetShakePosition) < 0.01f)
+                {
+                    SetNewTargetShakePosition();
+                }
                 _cameraTransform.localPosition = Vector3.Lerp(
                     _cameraTransform.localPosition,
                     _targetShakePosition,
                     Time.deltaTime * shakeFrequency
                 );
-
-                if (Vector3.Distance(_cameraTransform.localPosition, _targetShakePosition) < 0.01f)
-                {
-                    SetNewTargetShakePosition();
-                }
             }
-        }
-        else
-        {
-            _cameraTransform.localPosition = _originalCameraPosition;
         }
     }
 

@@ -53,7 +53,7 @@ public class PlayerController : MonoBehaviour
         _xrOrigin.CameraYOffset = height;
     }
 
-    private void OggerEnter(Collider other)
+    private void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag("SittingZone"))
         {
@@ -104,10 +104,7 @@ public class PlayerController : MonoBehaviour
                 StopCoroutine(_sittingCoroutine);
             }
 
-            if (_vrShake != null)
-            {
-                _vrShake.DisableShake();
-            }
+
 
             _sittingCoroutine = StartCoroutine(
                 LerpHeight(isSitting ? defaultHeight : sittingHeight)
@@ -120,7 +117,10 @@ public class PlayerController : MonoBehaviour
     {
         float startHeight = _xrOrigin.CameraYOffset;
         float timer = 0f;
-
+        if (_vrShake != null)
+        {
+            _vrShake.DisableShake();
+        }
         while (timer < sittingDuration)
         {
             timer += Time.deltaTime;

@@ -7909,15 +7909,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1717954561962503726, guid: f6336ac4ac8b4d34bc5072418cdc62a0, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -0
+      value: 0.15867567
       objectReference: {fileID: 0}
     - target: {fileID: 1717954561962503726, guid: f6336ac4ac8b4d34bc5072418cdc62a0, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.3000002
+      value: -0.00000071525574
       objectReference: {fileID: 0}
     - target: {fileID: 1717954561962503726, guid: f6336ac4ac8b4d34bc5072418cdc62a0, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 3.35
+      value: 1.6477828
       objectReference: {fileID: 0}
     - target: {fileID: 1717954561962503726, guid: f6336ac4ac8b4d34bc5072418cdc62a0, type: 3}
       propertyPath: m_LocalRotation.w
@@ -8132,9 +8132,6 @@ PrefabInstance:
       insertIndex: 3
       addedObject: {fileID: 1511792909711532104}
     m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 1717954561962503725, guid: f6336ac4ac8b4d34bc5072418cdc62a0, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 2585734285261940530}
     - targetCorrespondingSourceObject: {fileID: 1717954561962503725, guid: f6336ac4ac8b4d34bc5072418cdc62a0, type: 3}
       insertIndex: -1
       addedObject: {fileID: 7825808665312630389}
@@ -8463,7 +8460,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   shakeMagnitude: 0.03
-  shakeDuration: 30
   shakeFrequency: 10
 --- !u!4 &1130220832463905687 stripped
 Transform:
@@ -8545,19 +8541,6 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 1717954561962503725, guid: f6336ac4ac8b4d34bc5072418cdc62a0, type: 3}
   m_PrefabInstance: {fileID: 1130220830788913348}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &2585734285261940530
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1763228840888559337}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1fc77f0ec536e69489c5c49cbfa3ad05, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  sittingZoneTag: SittingZone
 --- !u!114 &7825808665312630389
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8575,6 +8558,7 @@ MonoBehaviour:
   defaultHeight: 1.36
   sittingHeight: 0.4
   sittingDuration: 0.1
+  isSitting: 0
 --- !u!114 &6775069400971002998
 MonoBehaviour:
   m_ObjectHideFlags: 0

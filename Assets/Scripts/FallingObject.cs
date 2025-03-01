@@ -5,6 +5,7 @@ using System.Linq;
 using NUnit.Framework;
 using UnityEditor.ShaderGraph.Serialization;
 using UnityEngine;
+using UnityEngine.Serialization;
 
 public class FallingObject : MonoBehaviour
 {
@@ -12,11 +13,11 @@ public class FallingObject : MonoBehaviour
     [UnityEngine.Range(0, 1)]
     private double fallingProbabilityMultiplier = 0.1f;
 
-    private List<Joint> jointsToBreak;
+    private List<Joint> _jointsToBreak;
     private EarthquakeManager _earthquakeManager;
 
-    [SerializeField]
-    private double _fallingProbability;
+    [FormerlySerializedAs("_fallingProbability")] [SerializeField]
+    private double fallingProbability;
 
     [SerializeField]
     private float completeFallingTime = 2f;
@@ -34,13 +35,13 @@ public class FallingObject : MonoBehaviour
             enabled = false;
         }
 
-        jointsToBreak = gameObject.GetComponents<Joint>().ToList();
+        _jointsToBreak = gameObject.GetComponents<Joint>().ToList();
         _probabiltyUpdater = StartCoroutine(IUpdateProbaility());
     }
 
     private void Fall()
     {
-        foreach (var joint in jointsToBreak)
+        foreach (var joint in _jointsToBreak)
         {
             joint.breakForce = 0;
             joint.breakTorque = 0;
@@ -80,13 +81,16 @@ public class FallingObject : MonoBehaviour
     {
         while (true)
         {
-            _fallingProbability =
+            fallingProbability =
                 _earthquakeManager.EarthquakeMagnitude * fallingProbabilityMultiplier;
-            if (UnityEngine.Random.value < _fallingProbability)
+            if (UnityEngine.Random.value < fallingProbability)
             {
                 Fall();
             }
-            yield return new WaitForSeconds(0.1f);
+            else
+            {
+                yield return new WaitForSeconds(0.1f);
+            }
         }
     }
 }
