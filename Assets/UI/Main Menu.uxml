@@ -1,0 +1,11 @@
+<engine:UXML xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:engine="UnityEngine.UIElements" xmlns:editor="UnityEditor.UIElements" noNamespaceSchemaLocation="../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
+    <engine:VisualElement style="flex-grow: 1; flex-direction: row; -unity-font-style: bold;">
+        <engine:VisualElement name="LeftPanel" style="flex-grow: 1; align-items: stretch; justify-content: center; padding-top: 25px; padding-right: 80px; padding-bottom: 25px; padding-left: 80px;">
+            <engine:TextField label="Name" placeholder-text="filler text" name="Name" />
+            <engine:TextField label="Roll No." placeholder-text="filler text" name="RollNumber" />
+            <engine:DropdownField label="Group" name="Group" choices="1: IGBT,2: NIBT,3: IGET,4: NIBT" index="0" />
+            <engine:Button text="Play Training" name="PlayTraining" />
+            <engine:Button text="Play Simulation" name="PlaySimulation" />
+        </engine:VisualElement>
+    </engine:VisualElement>
+</engine:UXML>

@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: bc09823b4a881ae48a3b1f5243401f03
+NativeFormatImporter:
+  externalObjects: {}
+  mainObjectFileID: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 26678
+  packageName: Free Furniture Set
+  packageVersion: 1.0.0
+  assetPath: Assets/FreeFurnitureSet/Prefabs/table.prefab
+  uploadId: 44538

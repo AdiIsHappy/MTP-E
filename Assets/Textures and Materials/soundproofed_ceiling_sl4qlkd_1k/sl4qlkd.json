@@ -1,0 +1,565 @@
+{
+  "assetCategories": {
+    "surface": {
+      "tile": {
+        "ceramic": {}
+      }
+    }
+  },
+  "averageColor": "#C1BBB1",
+  "categories": [
+    "surface",
+    "construction"
+  ],
+  "comp_version": 1,
+  "description": "",
+  "displacementBias": 0.846674,
+  "displacementCalibrationAccuracy": 0.971646,
+  "displacementScale": 0.449104,
+  "environment": {
+    "biome": "undefined",
+    "region": "undefined"
+  },
+  "highest_available_res": 16384,
+  "id": "sl4qlkd",
+  "json": {
+    "contentLength": 11909,
+    "uri": "sl4qlkd.json"
+  },
+  "maps": [
+    {
+      "averageColor": "#E5E5E5",
+      "bitDepth": 32,
+      "colorSpace": "sRGB",
+      "contentLength": 212380809,
+      "maxIntensity": 255,
+      "mimeType": "image/x-exr",
+      "minIntensity": 69,
+      "name": "AO",
+      "physicalSize": "2x2",
+      "resolution": "8192x8192",
+      "type": "ao",
+      "uri": "sl4qlkd_8K_AO.exr"
+    },
+    {
+      "averageColor": "#E5E5E5",
+      "bitDepth": 8,
+      "colorSpace": "sRGB",
+      "contentLength": 37215031,
+      "maxIntensity": 255,
+      "mimeType": "image/jpeg",
+      "minIntensity": 69,
+      "name": "AO",
+      "physicalSize": "2x2",
+      "resolution": "8192x8192",
+      "type": "ao",
+      "uri": "sl4qlkd_8K_AO.jpg"
+    },
+    {
+      "averageColor": "#C1BBB1",
+      "bitDepth": 16,
+      "colorSpace": "sRGB",
+      "contentLength": 232598735,
+      "maxIntensity": 239,
+      "mimeType": "image/x-exr",
+      "minIntensity": 21,
+      "name": "Basecolor",
+      "physicalSize": "2x2",
+      "resolution": "8192x8192",
+      "type": "basecolor",
+      "uri": "sl4qlkd_8K_Basecolor.exr"
+    },
+    {
+      "averageColor": "#C1BBB1",
+      "bitDepth": 8,
+      "colorSpace": "sRGB",
+      "contentLength": 55634430,
+      "maxIntensity": 239,
+      "mimeType": "image/jpeg",
+      "minIntensity": 21,
+      "name": "Basecolor",
+      "physicalSize": "2x2",
+      "resolution": "8192x8192",
+      "type": "basecolor",
+      "uri": "sl4qlkd_8K_Basecolor.jpg"
+    },
+    {
+      "averageColor": "#808080",
+      "bitDepth": 32,
+      "colorSpace": "Linear",
+      "contentLength": 222709197,
+      "maxIntensity": 255,
+      "mimeType": "image/x-exr",
+      "minIntensity": 0,
+      "name": "Bump",
+      "physicalSize": "2x2",
+      "resolution": "8192x8192",
+      "type": "bump",
+      "uri": "sl4qlkd_8K_Bump.exr"
+    },
+    {
+      "averageColor": "#808080",
+      "bitDepth": 8,
+      "colorSpace": "Linear",
+      "contentLength": 42999639,
+      "maxIntensity": 255,
+      "mimeType": "image/jpeg",
+      "minIntensity": 0,
+      "name": "Bump",
+      "physicalSize": "2x2",
+      "resolution": "8192x8192",
+      "type": "bump",
+      "uri": "sl4qlkd_8K_Bump.jpg"
+    },
+    {
+      "averageColor": "#BBBBBB",
+      "bitDepth": 32,
+      "colorSpace": "sRGB",
+      "contentLength": 220374214,
+      "maxIntensity": 255,
+      "mimeType": "image/x-exr",
+      "minIntensity": 0,
+      "name": "Cavity",
+      "physicalSize": "2x2",
+      "resolution": "8192x8192",
+      "type": "cavity",
+      "uri": "sl4qlkd_8K_Cavity.exr"
+    },
+    {
+      "averageColor": "#BBBBBB",
+      "bitDepth": 8,
+      "colorSpace": "sRGB",
+      "contentLength": 43060195,
+      "maxIntensity": 255,
+      "mimeType": "image/jpeg",
+      "minIntensity": 0,
+      "name": "Cavity",
+      "physicalSize": "2x2",
+      "resolution": "8192x8192",
+      "type": "cavity",
+      "uri": "sl4qlkd_8K_Cavity.jpg"
+    },
+    {
+      "averageColor": "#1A1A1A",
+      "bitDepth": 32,
+      "colorSpace": "Linear",
+      "contentLength": 237267713,
+      "maxIntensity": 69,
+      "mimeType": "image/x-exr",
+      "minIntensity": 0,
+      "name": "Gloss",
+      "physicalSize": "2x2",
+      "resolution": "8192x8192",
+      "type": "gloss",
+      "uri": "sl4qlkd_8K_Gloss.exr"
+    },
+    {
+      "averageColor": "#1A1A1A",
+      "bitDepth": 8,
+      "colorSpace": "Linear",
+      "contentLength": 42288254,
+      "maxIntensity": 69,
+      "mimeType": "image/jpeg",
+      "minIntensity": 0,
+      "name": "Gloss",
+      "physicalSize": "2x2",
+      "resolution": "8192x8192",
+      "type": "gloss",
+      "uri": "sl4qlkd_8K_Gloss.jpg"
+    },
+    {
+      "averageColor": "#8081FA",
+      "bitDepth": 16,
+      "colorSpace": "Linear",
+      "contentLength": 202663913,
+      "maxIntensity": 215,
+      "mimeType": "image/x-exr",
+      "minIntensity": 56,
+      "name": "Normal",
+      "physicalSize": "2x2",
+      "resolution": "8192x8192",
+      "type": "normal",
+      "uri": "sl4qlkd_8K_Normal.exr"
+    },
+    {
+      "averageColor": "#8081FA",
+      "bitDepth": 8,
+      "colorSpace": "Linear",
+      "contentLength": 106896225,
+      "maxIntensity": 215,
+      "mimeType": "image/jpeg",
+      "minIntensity": 56,
+      "name": "Normal",
+      "physicalSize": "2x2",
+      "resolution": "8192x8192",
+      "type": "normal",
+      "uri": "sl4qlkd_8K_Normal.jpg"
+    },
+    {
+      "averageColor": "#E5E5E5",
+      "bitDepth": 32,
+      "colorSpace": "Linear",
+      "contentLength": 215021178,
+      "maxIntensity": 255,
+      "mimeType": "image/x-exr",
+      "minIntensity": 186,
+      "name": "Roughness",
+      "physicalSize": "2x2",
+      "resolution": "8192x8192",
+      "type": "roughness",
+      "uri": "sl4qlkd_8K_Roughness.exr"
+    },
+    {
+      "averageColor": "#E5E5E5",
+      "bitDepth": 8,
+      "colorSpace": "Linear",
+      "contentLength": 40356872,
+      "maxIntensity": 255,
+      "mimeType": "image/jpeg",
+      "minIntensity": 186,
+      "name": "Roughness",
+      "physicalSize": "2x2",
+      "resolution": "8192x8192",
+      "type": "roughness",
+      "uri": "sl4qlkd_8K_Roughness.jpg"
+    },
+    {
+      "averageColor": "#292929",
+      "bitDepth": 16,
+      "colorSpace": "sRGB",
+      "contentLength": 245972081,
+      "maxIntensity": 0,
+      "mimeType": "image/x-exr",
+      "minIntensity": 56.1,
+      "name": "Specular",
+      "physicalSize": "2x2",
+      "resolution": "8192x8192",
+      "type": "specular",
+      "uri": "sl4qlkd_8K_Specular.exr"
+    },
+    {
+      "averageColor": "#292929",
+      "bitDepth": 8,
+      "colorSpace": "sRGB",
+      "contentLength": 25303098,
+      "maxIntensity": 0,
+      "mimeType": "image/jpeg",
+      "minIntensity": 56.1,
+      "name": "Specular",
+      "physicalSize": "2x2",
+      "resolution": "8192x8192",
+      "type": "specular",
+      "uri": "sl4qlkd_8K_Specular.jpg"
+    }
+  ],
+  "meta": [
+    {
+      "key": "scanArea",
+      "name": "Scan Area",
+      "value": "2x2 m"
+    },
+    {
+      "key": "height",
+      "name": "Height",
+      "value": "0.028 m"
+    },
+    {
+      "key": "tileable",
+      "name": "Tileable",
+      "value": true
+    },
+    {
+      "key": "texelDensity",
+      "name": "Texel Density",
+      "value": "8192 px/m"
+    },
+    {
+      "key": "calibration",
+      "name": "Calibration",
+      "value": "GretagMacbeth ColorChecker Color Rendition Chart"
+    },
+    {
+      "key": "scanner",
+      "name": "Scanner",
+      "value": "MKX"
+    }
+  ],
+  "models": [],
+  "name": "Soundproofed Ceiling",
+  "pack": {
+    "_id": "abandoned-factory",
+    "name": "Abandoned Factory"
+  },
+  "physicalSize": null,
+  "points": 2,
+  "previews": {
+    "images": [
+      {
+        "contentLength": 232452,
+        "resolution": "360x360",
+        "tags": [
+          "thumb"
+        ],
+        "uri": "sl4qlkd_Grid_360.png"
+      },
+      {
+        "contentLength": 318381,
+        "resolution": "420x420",
+        "tags": [
+          "thumb"
+        ],
+        "uri": "sl4qlkd_Grid_420.png"
+      },
+      {
+        "contentLength": 961187,
+        "resolution": "720x720",
+        "tags": [
+          "thumb",
+          "retina"
+        ],
+        "uri": "sl4qlkd_Grid_720.png"
+      },
+      {
+        "contentLength": 1314726,
+        "resolution": "840x840",
+        "tags": [
+          "thumb",
+          "retina"
+        ],
+        "uri": "sl4qlkd_Grid_840.png"
+      },
+      {
+        "contentLength": 2683601,
+        "resolution": "1440x768",
+        "tags": [
+          "preview",
+          "clay"
+        ],
+        "uri": "sl4qlkd_PopupClay_1440.png"
+      },
+      {
+        "contentLength": 5071459,
+        "resolution": "1920x1080",
+        "tags": [
+          "preview",
+          "clay"
+        ],
+        "uri": "sl4qlkd_PopupClay_1920.png"
+      },
+      {
+        "contentLength": 10997626,
+        "resolution": "2880x1536",
+        "tags": [
+          "preview",
+          "clay",
+          "retina"
+        ],
+        "uri": "sl4qlkd_PopupClay_2880.png"
+      },
+      {
+        "contentLength": 21055860,
+        "resolution": "3840x2160",
+        "tags": [
+          "preview",
+          "clay",
+          "retina"
+        ],
+        "uri": "sl4qlkd_PopupClay_3840.png"
+      },
+      {
+        "contentLength": 2720384,
+        "resolution": "1440x768",
+        "tags": [
+          "preview",
+          "tiled"
+        ],
+        "uri": "sl4qlkd_PopupTiled_1440.png"
+      },
+      {
+        "contentLength": 5096299,
+        "resolution": "1920x1080",
+        "tags": [
+          "preview",
+          "tiled"
+        ],
+        "uri": "sl4qlkd_PopupTiled_1920.png"
+      },
+      {
+        "contentLength": 10932119,
+        "resolution": "2880x1536",
+        "tags": [
+          "preview",
+          "tiled",
+          "retina"
+        ],
+        "uri": "sl4qlkd_PopupTiled_2880.png"
+      },
+      {
+        "contentLength": 20546460,
+        "resolution": "3840x2160",
+        "tags": [
+          "preview",
+          "tiled",
+          "retina"
+        ],
+        "uri": "sl4qlkd_PopupTiled_3840.png"
+      },
+      {
+        "contentLength": 2760992,
+        "resolution": "1440x768",
+        "tags": [
+          "preview"
+        ],
+        "uri": "sl4qlkd_Popup_1440.png"
+      },
+      {
+        "contentLength": 5201367,
+        "resolution": "1920x1080",
+        "tags": [
+          "preview"
+        ],
+        "uri": "sl4qlkd_Popup_1920.png"
+      },
+      {
+        "contentLength": 11372795,
+        "resolution": "2880x1536",
+        "tags": [
+          "preview",
+          "retina"
+        ],
+        "uri": "sl4qlkd_Popup_2880.png"
+      },
+      {
+        "contentLength": 21400954,
+        "resolution": "3840x2160",
+        "tags": [
+          "preview",
+          "retina"
+        ],
+        "uri": "sl4qlkd_Popup_3840.png"
+      }
+    ],
+    "relativeSize": "1x1",
+    "scaleReferences": []
+  },
+  "process_date": "2024-04-17 14:00:39",
+  "properties": [],
+  "referencePreviews": {
+    "maps": [],
+    "models": []
+  },
+  "references": [],
+  "revised": false,
+  "semanticTags": {
+    "architectural_style": {},
+    "asset_type": "surface",
+    "collection": [
+      "Abandoned Factory"
+    ],
+    "color": [
+      "desaturated"
+    ],
+    "contains": [
+      "drop ceiling",
+      "acoustical tiles"
+    ],
+    "descriptive": [
+      "perforated",
+      "ceiling tiles"
+    ],
+    "environment": [
+      "industrial",
+      "urban"
+    ],
+    "industry": [
+      "archviz",
+      "games",
+      "VFX"
+    ],
+    "interior_exterior": [
+      "interior"
+    ],
+    "latin_name": [],
+    "locations": {
+      "Global": {
+        "Global": {}
+      }
+    },
+    "maxSize": 2,
+    "minSize": 2,
+    "name": "Soundproofed Ceiling",
+    "orientation": [
+      "ceiling"
+    ],
+    "resolution": 16384,
+    "season": [],
+    "state": [
+      "new"
+    ],
+    "subject_matter": "manmade",
+    "theme": [
+      "noise proof",
+      "absorbing noise",
+      "acoustic barrier",
+      "interior",
+      "noise reduction",
+      "non-conductive barrier",
+      " soundproof walls"
+    ]
+  },
+  "tags": [
+    "desaturated",
+    "industrial",
+    "noise proof",
+    "absorbing noise",
+    "ceiling",
+    "acoustic barrier",
+    "interior",
+    "offwhite",
+    "perforated",
+    "ceiling tiles",
+    "noise reduction",
+    "non-conductive barrier",
+    "archviz",
+    "strassa",
+    "soundproof walls",
+    "floor"
+  ],
+  "texelDensity": 8192,
+  "texture_type": "basic",
+  "ue_plugin_archives": [
+    {
+      "contentLength": 345912656,
+      "gltfVersion": "2.0",
+      "tier": 0,
+      "type": "gltf",
+      "uri": "ue_plugin_archives/tier_0/sl4qlkd_tier_0.zip",
+      "version": 1
+    },
+    {
+      "contentLength": 94644595,
+      "gltfVersion": "2.0",
+      "tier": 1,
+      "type": "gltf",
+      "uri": "ue_plugin_archives/tier_1/sl4qlkd_tier_1.zip",
+      "version": 1
+    },
+    {
+      "contentLength": 24263335,
+      "gltfVersion": "2.0",
+      "tier": 2,
+      "type": "gltf",
+      "uri": "ue_plugin_archives/tier_2/sl4qlkd_tier_2.zip",
+      "version": 1
+    },
+    {
+      "contentLength": 2492402,
+      "gltfVersion": "2.0",
+      "tier": 3,
+      "type": "gltf",
+      "uri": "ue_plugin_archives/tier_3/sl4qlkd_tier_3.zip",
+      "version": 1
+    }
+  ],
+  "version": 2
+}

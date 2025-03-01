@@ -925,15 +925,15 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: -8679921383154817045, guid: 873e120f18afbdf47a59b0fca39a7cd0, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 1.325064
+      value: -1.7680001
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 873e120f18afbdf47a59b0fca39a7cd0, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 1.01
+      value: -0.358
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 873e120f18afbdf47a59b0fca39a7cd0, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -2.3227334
+      value: -1.221
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 873e120f18afbdf47a59b0fca39a7cd0, type: 3}
       propertyPath: m_LocalRotation.w
@@ -941,7 +941,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 873e120f18afbdf47a59b0fca39a7cd0, type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 873e120f18afbdf47a59b0fca39a7cd0, type: 3}
       propertyPath: m_LocalRotation.y
@@ -1186,10 +1186,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f834e6b7d1ae27f41882a037248c2f76, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _shakeForceMagnitude: 0.2
-  noiseMagnitude: 30
-  rotationMagnitude: 10
-  _shakeDuration: 30
+  objectType: 0
+  shakeForceMagnitude: 8
+  rotationTorqueMagnitude: 15
+  forceApplicationPoint: {fileID: 0}
 --- !u!4 &1887577763947906782 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 873e120f18afbdf47a59b0fca39a7cd0, type: 3}

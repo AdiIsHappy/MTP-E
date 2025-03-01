@@ -1,21 +1,30 @@
-using UnityEngine;
 using System.Collections.Generic;
-using UnityEditor;
 using System.IO;
+using UnityEditor;
+using UnityEngine;
 
 public class CSVToEqDataScriptableObject
 {
     [MenuItem("Tools/Create Earthquake Data")]
     public static void CreateEarthquakeData()
     {
-        string csvPath = EditorUtility.OpenFilePanel("Select CSV File", Application.dataPath, "csv");
+        string csvPath = EditorUtility.OpenFilePanel(
+            "Select CSV File",
+            Application.dataPath,
+            "csv"
+        );
 
         if (string.IsNullOrEmpty(csvPath))
         {
             return; // User cancelled
         }
 
-        string savePath = EditorUtility.SaveFilePanel("Save Earthquake Data", "Assets/data", "EqDataContainer", "asset");
+        string savePath = EditorUtility.SaveFilePanel(
+            "Save Earthquake Data",
+            "Assets/data",
+            "EqDataContainer",
+            "asset"
+        );
 
         if (string.IsNullOrEmpty(savePath))
         {
@@ -33,7 +42,8 @@ public class CSVToEqDataScriptableObject
         // Parse the data and add to the list
         for (int i = 1; i < data.Length; i++) // Skip the header row
         {
-            if (string.IsNullOrEmpty(data[i])) continue;
+            if (string.IsNullOrEmpty(data[i]))
+                continue;
 
             string[] row = data[i].Split(',');
 
@@ -50,16 +60,14 @@ public class CSVToEqDataScriptableObject
                 {
                     time = row[0],
                     xAcc = xAcc,
-                    yAcc = yAcc
+                    yAcc = yAcc,
                 };
                 eqDataContainer.earthquakeDataList.Add(eqData);
-
             }
             else
             {
                 Debug.LogError($"Error parsing float values at line {i + 1}. Skipping.");
             }
-
         }
 
         // Caluculate the frequency from, difference of timestamp of first and second row
