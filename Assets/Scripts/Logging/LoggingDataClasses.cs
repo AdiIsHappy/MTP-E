@@ -5,18 +5,18 @@ using UnityEngine;
 [Serializable]
 public class User
 {
-    public User(string name, string rollNo, string group)
+    public User(string rollNumber, string id, string group)
     {
-        Name = name;
-        RollNumber = rollNo;
+        RollNumber = rollNumber;
+        ID = id;
         Group = group;
         Score = 0;
         Penalty = 0;
         Events = new List<EventData>();
     }
 
-    public string Name { get; set; }
     public string RollNumber { get; set; }
+    public string ID { get; set; }
     public string Group { get; set; }
     public int Score { get; set; }
     public int Penalty { get; set; }
@@ -42,7 +42,7 @@ public class EventData
     public bool PlayerSeated;
     public EventDataType EventType { get; set; }
     public string EventDescription { get; set; }
-    public float Time { get; set; }
+    public long Time { get; set; }
 }
 
 [Serializable]
@@ -60,4 +60,8 @@ public enum EventDataType
     PlayerHitByFallingLight,
     LightFallen,
     RealtimeData,
+    TrainingStarted,
+    TrainingEnded,
+    SimulationStarted,
+    SimulationEnded,
 }

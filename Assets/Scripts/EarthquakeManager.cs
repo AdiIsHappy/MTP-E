@@ -3,6 +3,7 @@ using System.Collections;
 using UnityEngine;
 using UnityEngine.Audio;
 using UnityEngine.Rendering.Universal;
+using UnityEngine.SceneManagement;
 
 public class EarthquakeManager : MonoBehaviour
 {
@@ -16,6 +17,8 @@ public class EarthquakeManager : MonoBehaviour
 
     [SerializeField]
     float earthquakeStartAfter = 120f;
+
+    [SerializeField] private float endSimulationAfterEndOfEarthquake = 30f;
     private float _timer = 0f;
     private bool earthquakeHappend = false;
 
@@ -39,6 +42,7 @@ public class EarthquakeManager : MonoBehaviour
     private void Start()
     {
         _earthquakeAudioSource = GetComponent<AudioSource>();
+        UserManager._instance.LogEvent(EventDataType.SimulationStarted, "Earthquake Simulation Started");
     }
 
     void Update()
@@ -47,9 +51,15 @@ public class EarthquakeManager : MonoBehaviour
         if (_timer >= earthquakeStartAfter && !earthquakeHappend)
         {
             _timer = 0f;
+            earthquakeHappend = true;
             StartCoroutine(Earthquake());
             UserManager._instance.LogEvent(EventDataType.EarthquakeStart, "Earthquake started.");
-            earthquakeHappend = true;
+        }
+
+        if (_timer >= (earthquakeStartAfter + _earthquakeDuration + endSimulationAfterEndOfEarthquake))
+        {
+            UserManager._instance.LogEvent(EventDataType.SimulationEnded, "Earthquake Simulation ended.");
+            SceneManager.LoadScene("MainMenu");
         }
     }
 
@@ -64,7 +74,7 @@ public class EarthquakeManager : MonoBehaviour
                 (Time.time - startTime) / _earthquakeDuration
             );
             EarthquakeMagnitude = intensity;
-            //_earthquakeAudioSource.volume = intensity;
+            _earthquakeAudioSource.volume = intensity;
             yield return null;
         }
         EarthquakeMagnitude = 0f;

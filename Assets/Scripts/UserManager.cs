@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using Newtonsoft.Json;
 using Unity.Tutorials.Core.Editor;
@@ -60,8 +61,8 @@ public class UserManager : MonoBehaviour
         }
         else
         {
-            CurrentUser.Name = name;
-            CurrentUser.RollNumber = rollNo;
+            CurrentUser.RollNumber = name;
+            CurrentUser.ID = rollNo;
             CurrentUser.Group = group;
         }
     }
@@ -75,7 +76,7 @@ public class UserManager : MonoBehaviour
                 {
                     EventPosition = _playerTransform.position,
                     EventRotation = _playerTransform.rotation.eulerAngles,
-                    Time = Time.time,
+                    Time = DateTimeOffset.Now.ToUnixTimeSeconds(),
                     PlayerSeated = _playerController.isSitting,
                     EventType = EventDataType.RealtimeData,
                     EarthquakeMagnitude = EarthquakeManager._instance.EarthquakeMagnitude,
@@ -107,7 +108,7 @@ public class UserManager : MonoBehaviour
                 EventDescription = eventDescription,
                 EventPosition = eventPosition,
                 EventRotation = eventRotation,
-                Time = Time.time,
+                Time = DateTimeOffset.Now.ToUnixTimeMilliseconds(),
             }
         );
     }
@@ -131,7 +132,7 @@ public class UserManager : MonoBehaviour
 
     void SaveDataToCSV()
     {
-        if (CurrentUser.Name.IsNullOrEmpty())
+        if (CurrentUser.RollNumber.IsNullOrEmpty())
             return;
 
         string directoryPath =
@@ -142,17 +143,22 @@ public class UserManager : MonoBehaviour
         }
 
         string path =
-            directoryPath + "/" + CurrentUser.Name + "_" + CurrentUser.RollNumber + ".csv";
+            directoryPath + "/" + CurrentUser.RollNumber + "_" + CurrentUser.ID + ".csv";
         Debug.Log(path);
         string csv =
-            "EventType,EventDescription,EventPosition,EventRotation,EarthquakeMagnitude,PlayerSeated,Time,Score,Penalty,Name,RollNumber,Group\n";
+            "Time,Score,Penalty,ID,RollNumber,Group,EventType,EventDescription,EventPosition(X Y Z),EventRotation(X Y Z),EarthquakeMagnitude,PlayerSeated\n";
         csv +=
-            $",,,,,,,{CurrentUser.Score}, {CurrentUser.Penalty},{CurrentUser.Name},{CurrentUser.RollNumber},{CurrentUser.Group}\n";
+            $"{DateTimeOffset.Now.ToUnixTimeMilliseconds()},{CurrentUser.Score}, {CurrentUser.Penalty},{CurrentUser.ID},{CurrentUser.RollNumber},{CurrentUser.Group},,,,,,\n";
         foreach (var eventData in CurrentUser.Events)
         {
             csv +=
-                $"{eventData.EventType},{eventData.EventDescription},{$"{eventData.EventPosition.x} {eventData.EventPosition.y} {eventData.EventPosition.z}"},{$"{eventData.EventRotation.x} {eventData.EventRotation.y} {eventData.EventRotation.z}"},{eventData.EarthquakeMagnitude},{eventData.PlayerSeated},{eventData.Time}\n";
+                $"{eventData.Time},,,,,,{eventData.EventType},{eventData.EventDescription},{$"{eventData.EventPosition.x} {eventData.EventPosition.y} {eventData.EventPosition.z}"},{$"{eventData.EventRotation.x} {eventData.EventRotation.y} {eventData.EventRotation.z}"},{eventData.EarthquakeMagnitude},{eventData.PlayerSeated}\n";
         }
         System.IO.File.WriteAllText(path, csv);
+    }
+    private string FormatUnixTimestamp(long unixTimestamp)
+    {
+        DateTimeOffset dateTimeOffset = DateTimeOffset.FromUnixTimeSeconds(unixTimestamp);
+        return dateTimeOffset.ToString("yyyy-MM-dd HH:mm:ss"); // Format as desired
     }
 }

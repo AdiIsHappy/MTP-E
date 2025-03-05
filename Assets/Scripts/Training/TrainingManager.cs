@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using TMPro;
 using UnityEngine;
@@ -19,6 +20,12 @@ public class TrainingManager : MonoBehaviour
             "Welcome to training session, \nMove towards next room using controller.",
             _typingSpeed
         );
+        UserManager._instance.LogEvent(EventDataType.TrainingStarted, "Training Started");
+    }
+
+    private void OnDestroy()
+    {
+        UserManager._instance.LogEvent(EventDataType.TrainingEnded, "Training Ended");
     }
 
     void Update()
