@@ -41,6 +41,7 @@ public class ScoreManager : MonoBehaviour
     private void OnBookPlaced()
     {
         score += scoreDictionary["BookPlaced"];
+        UserManager._instance.CurrentUser.Score = score;
     }
 
     private void OnBookRemoved()
@@ -53,6 +54,7 @@ public class ScoreManager : MonoBehaviour
         if (collision.gameObject.CompareTag("FallingLamp"))
         {
             penalty += penaltyDictionary["FallingLight"];
+            UserManager._instance.CurrentUser.Penalty = penalty;
         }
     }
 
@@ -62,6 +64,7 @@ public class ScoreManager : MonoBehaviour
         {
             score += scoreDictionary["UnderTableSitting"];
             scoreDictionary["UnderTableSitting"] = 0;
+            UserManager._instance.CurrentUser.Score = score;
         }
     }
 }

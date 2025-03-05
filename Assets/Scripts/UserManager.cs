@@ -48,7 +48,7 @@ public class UserManager : MonoBehaviour
         }
         if (scene.name == "MainMenu")
         {
-            SaveDataToJSON();
+            SaveDataToCSV();
         }
     }
 
@@ -70,20 +70,26 @@ public class UserManager : MonoBehaviour
     {
         if (inSimulationScene)
         {
-            CurrentUser.RealtimeData.Add(
-                new RealtimeData
+            CurrentUser.Events.Add(
+                new EventData
                 {
-                    position = new SerilizableVector3(_playerTransform.position),
-                    rotation = new SerilizableVector3(_playerTransform.rotation.eulerAngles),
+                    EventPosition = _playerTransform.position,
+                    EventRotation = _playerTransform.rotation.eulerAngles,
                     Time = Time.time,
-                    Seated = _playerController.isSitting,
+                    PlayerSeated = _playerController.isSitting,
+                    EventType = EventDataType.RealtimeData,
                     EarthquakeMagnitude = EarthquakeManager._instance.EarthquakeMagnitude,
                 }
             );
         }
     }
 
-    public void LogEvent(EventDataType eventType, string eventDescription)
+    public void LogEvent(
+        EventDataType eventType,
+        string eventDescription,
+        Vector3 eventPosition = default,
+        Vector3 eventRotation = default
+    )
     {
         if (CurrentUser == null)
         {
@@ -99,6 +105,8 @@ public class UserManager : MonoBehaviour
             {
                 EventType = eventType,
                 EventDescription = eventDescription,
+                EventPosition = eventPosition,
+                EventRotation = eventRotation,
                 Time = Time.time,
             }
         );
@@ -121,20 +129,30 @@ public class UserManager : MonoBehaviour
         }
     }
 
-    void SaveDataToJSON()
+    void SaveDataToCSV()
     {
         if (CurrentUser.Name.IsNullOrEmpty())
             return;
 
-        string directoryPath = Application.persistentDataPath + "/UserData";
+        string directoryPath =
+            Application.persistentDataPath + "/UserData" + $"/{CurrentUser.Group}";
         if (!System.IO.Directory.Exists(directoryPath))
         {
             System.IO.Directory.CreateDirectory(directoryPath);
         }
 
-        string path = directoryPath + "/" + CurrentUser.RollNumber + ".json";
+        string path =
+            directoryPath + "/" + CurrentUser.Name + "_" + CurrentUser.RollNumber + ".csv";
         Debug.Log(path);
-        string json = JsonConvert.SerializeObject(CurrentUser);
-        System.IO.File.WriteAllText(path, json);
+        string csv =
+            "EventType,EventDescription,EventPosition,EventRotation,EarthquakeMagnitude,PlayerSeated,Time,Score,Penalty,Name,RollNumber,Group\n";
+        csv +=
+            $",,,,,,,{CurrentUser.Score}, {CurrentUser.Penalty},{CurrentUser.Name},{CurrentUser.RollNumber},{CurrentUser.Group}\n";
+        foreach (var eventData in CurrentUser.Events)
+        {
+            csv +=
+                $"{eventData.EventType},{eventData.EventDescription},{$"{eventData.EventPosition.x} {eventData.EventPosition.y} {eventData.EventPosition.z}"},{$"{eventData.EventRotation.x} {eventData.EventRotation.y} {eventData.EventRotation.z}"},{eventData.EarthquakeMagnitude},{eventData.PlayerSeated},{eventData.Time}\n";
+        }
+        System.IO.File.WriteAllText(path, csv);
     }
 }

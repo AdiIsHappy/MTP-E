@@ -21,7 +21,7 @@ public class EarthquakeManager : MonoBehaviour
 
     public float EarthquakeMagnitude { get; private set; } = 0f;
     public bool IsEarthquakeHappening { get; private set; } = false;
-    
+
     private AudioSource _earthquakeAudioSource;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created

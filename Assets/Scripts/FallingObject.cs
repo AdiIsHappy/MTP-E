@@ -16,7 +16,8 @@ public class FallingObject : MonoBehaviour
     private List<Joint> _jointsToBreak;
     private EarthquakeManager _earthquakeManager;
 
-    [FormerlySerializedAs("_fallingProbability")] [SerializeField]
+    [FormerlySerializedAs("_fallingProbability")]
+    [SerializeField]
     private double fallingProbability;
 
     [SerializeField]
@@ -43,6 +44,8 @@ public class FallingObject : MonoBehaviour
     {
         foreach (var joint in _jointsToBreak)
         {
+            if (joint == null)
+                return;
             joint.breakForce = 0;
             joint.breakTorque = 0;
         }
@@ -53,7 +56,9 @@ public class FallingObject : MonoBehaviour
         }
         UserManager._instance.LogEvent(
             EventDataType.FallingLight,
-            $"Light fell : {gameObject.name}"
+            $"Light fell : {gameObject.name}",
+            transform.position,
+            transform.rotation.eulerAngles
         );
         Invoke(nameof(CompleteFall), completeFallingTime);
     }
@@ -72,7 +77,9 @@ public class FallingObject : MonoBehaviour
             gameObject.tag = "Untagged";
             UserManager._instance.LogEvent(
                 EventDataType.PlayerHitByFallingLight,
-                $"Player hit by falling light : {gameObject.name}"
+                $"Player hit by falling light : {gameObject.name}",
+                transform.position,
+                transform.rotation.eulerAngles
             );
         }
     }

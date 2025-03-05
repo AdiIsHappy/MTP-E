@@ -65,8 +65,9 @@ public class VRShake : MonoBehaviour
         if (_shakeDisableRequests <= 0)
         {
             _shakeDisableRequests = 0; // Ensure it doesn't go negative.
-            SetNewTargetShakePosition();
         }
+        if (_shakeDisableRequests == 0 && enabled)
+            SetNewTargetShakePosition();
     }
 
     private void Update()

@@ -13,7 +13,6 @@ public class User
         Score = 0;
         Penalty = 0;
         Events = new List<EventData>();
-        RealtimeData = new List<RealtimeData>();
     }
 
     public string Name { get; set; }
@@ -22,22 +21,25 @@ public class User
     public int Score { get; set; }
     public int Penalty { get; set; }
     public List<EventData> Events { get; set; }
-    public List<RealtimeData> RealtimeData { get; set; }
 }
 
-[Serializable]
-public class RealtimeData
-{
-    public SerilizableVector3 position;
-    public SerilizableVector3 rotation;
-    public bool Seated;
-    public float EarthquakeMagnitude;
-    public float Time;
-}
+// [Serializable]
+// public class RealtimeData
+// {
+//     public Vector3 position;
+//     public Vector3 rotation;
+//     public bool Seated;
+//     public float EarthquakeMagnitude;
+//     public float Time;
+// }
 
 [Serializable]
 public class EventData
 {
+    public Vector3 EventPosition;
+    public Vector3 EventRotation;
+    public float EarthquakeMagnitude;
+    public bool PlayerSeated;
     public EventDataType EventType { get; set; }
     public string EventDescription { get; set; }
     public float Time { get; set; }
@@ -57,23 +59,5 @@ public enum EventDataType
     EarthquakeEnd,
     PlayerHitByFallingLight,
     LightFallen,
-}
-
-public class SerilizableVector3
-{
-    public float x;
-    public float y;
-    public float z;
-
-    public SerilizableVector3(Vector3 vector3)
-    {
-        x = vector3.x;
-        y = vector3.y;
-        z = vector3.z;
-    }
-
-    public Vector3 ToVector3()
-    {
-        return new Vector3(x, y, z);
-    }
+    RealtimeData,
 }

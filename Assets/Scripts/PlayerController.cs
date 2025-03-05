@@ -59,7 +59,9 @@ public class PlayerController : MonoBehaviour
         {
             UserManager._instance.LogEvent(
                 EventDataType.EntryUnderTable,
-                "Player entered the sitting zone."
+                "Player entered the sitting zone.",
+                other.transform.position,
+                other.transform.rotation.eulerAngles
             );
             _isInSittingZone = true;
         }
@@ -71,7 +73,9 @@ public class PlayerController : MonoBehaviour
         {
             UserManager._instance.LogEvent(
                 EventDataType.ExitUnderTable,
-                "Player exited the sitting zone."
+                "Player exited the sitting zone.",
+                other.transform.position,
+                other.transform.rotation.eulerAngles
             );
             _isInSittingZone = false;
         }
@@ -81,7 +85,9 @@ public class PlayerController : MonoBehaviour
     {
         UserManager._instance.LogEvent(
             EventDataType.ItemPicked,
-            $"Item {args.interactableObject.transform.name} Picked."
+            $"Item {args.interactableObject.transform.name} Picked.",
+            args.interactableObject.transform.position,
+            args.interactableObject.transform.rotation.eulerAngles
         );
     }
 
@@ -89,7 +95,9 @@ public class PlayerController : MonoBehaviour
     {
         UserManager._instance.LogEvent(
             EventDataType.ItemDropped,
-            $"Item {args.interactableObject.transform.name} Dropped."
+            $"Item {args.interactableObject.transform.name} Dropped.",
+            args.interactableObject.transform.position,
+            args.interactableObject.transform.rotation.eulerAngles
         );
     }
 
@@ -97,14 +105,16 @@ public class PlayerController : MonoBehaviour
     {
         if (isSitting && _isInSittingZone)
             return;
-        if (rightTriggerAction.action.triggered || leftTriggerAction.action.triggered)
+        if (
+            rightTriggerAction.action.triggered
+            || leftTriggerAction.action.triggered
+            || Keyboard.current[Key.Space].wasPressedThisFrame
+        )
         {
             if (_sittingCoroutine != null)
             {
                 StopCoroutine(_sittingCoroutine);
             }
-
-
 
             _sittingCoroutine = StartCoroutine(
                 LerpHeight(isSitting ? defaultHeight : sittingHeight)

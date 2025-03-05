@@ -23,7 +23,12 @@ public class BookPlacement : MonoBehaviour
             Debug.Log($"No. Of Books increased to {_placedBooks.Count}");
             BookPlaced?.Invoke();
             other.tag = "Untagged";
-            UserManager._instance.LogEvent(EventDataType.BookPlaced, "Book placed on the shelf.");
+            UserManager._instance.LogEvent(
+                EventDataType.BookPlaced,
+                "Book placed on the shelf.",
+                other.gameObject.transform.position,
+                other.gameObject.transform.rotation.eulerAngles
+            );
         }
     }
 
@@ -38,7 +43,9 @@ public class BookPlacement : MonoBehaviour
                 BookRemoved?.Invoke();
                 UserManager._instance.LogEvent(
                     EventDataType.BookRemoved,
-                    "Book removed from the shelf."
+                    "Book removed from the shelf.",
+                    other.gameObject.transform.position,
+                    other.gameObject.transform.rotation.eulerAngles
                 );
             }
         }
