@@ -56,14 +56,14 @@ public class ScoreManager : MonoBehaviour
 
     private void OnBookPlaced()
     {
-        if(UserManager._instance.CurrentUser.Group == "Group 1" || UserManager._instance.CurrentUser.Group == "Group 3")
+        if(UserManager._instance.CurrentUser.Group == "Group 1" || UserManager._instance.CurrentUser.Group == "Group 2")
             score += _scoreDictionary["BookPlaced"];
         UserManager._instance.CurrentUser.Score = score;
     }
 
     private void OnBookRemoved()
     {
-        if(UserManager._instance.CurrentUser.Group == "Group 1" || UserManager._instance.CurrentUser.Group == "Group 3")
+        if(UserManager._instance.CurrentUser.Group == "Group 1" || UserManager._instance.CurrentUser.Group == "Group 2")
             penalty += _penaltyDictionary["BookRemoved"];
         UserManager._instance.CurrentUser.Penalty = penalty;
     }
@@ -89,7 +89,7 @@ public class ScoreManager : MonoBehaviour
 
     void OnItemPicked(SelectEnterEventArgs args)
     {
-        if(UserManager._instance.CurrentUser.Group == "Group 1" || UserManager._instance.CurrentUser.Group == "Group 3") return;
+        if(UserManager._instance.CurrentUser.Group == "Group 1" || UserManager._instance.CurrentUser.Group == "Group 2") return;
         if (!_pickedItems.Contains(args.interactableObject))
         {
             score += _scoreDictionary["ItemObserved"];

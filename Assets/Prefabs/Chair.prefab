@@ -925,15 +925,15 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: -8679921383154817045, guid: 873e120f18afbdf47a59b0fca39a7cd0, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -1.7680001
+      value: 1.5758089
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 873e120f18afbdf47a59b0fca39a7cd0, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.358
+      value: -0.42423075
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 873e120f18afbdf47a59b0fca39a7cd0, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -1.221
+      value: -1.0479454
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 873e120f18afbdf47a59b0fca39a7cd0, type: 3}
       propertyPath: m_LocalRotation.w
@@ -1069,7 +1069,7 @@ MonoBehaviour:
   m_InteractionLayers:
     m_Bits: 1
   m_DistanceCalculationMode: 1
-  m_SelectMode: 0
+  m_SelectMode: 1
   m_FocusMode: 1
   m_CustomReticle: {fileID: 0}
   m_AllowGazeInteraction: 0
@@ -1126,7 +1126,7 @@ MonoBehaviour:
   m_StartingInteractionStrengthFilters: []
   m_AttachTransform: {fileID: 0}
   m_SecondaryAttachTransform: {fileID: 0}
-  m_UseDynamicAttach: 0
+  m_UseDynamicAttach: 1
   m_MatchAttachPosition: 1
   m_MatchAttachRotation: 1
   m_SnapToColliderVolume: 1

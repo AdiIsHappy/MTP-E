@@ -53,16 +53,16 @@ public class UserManager : MonoBehaviour
         }
     }
 
-    public void AddeUserInfo(string name, string rollNo, string group)
+    public void AddeUserInfo(string rollNumber, string ID, string group)
     {
         if (CurrentUser == null)
         {
-            CurrentUser = new User(name, rollNo, group);
+            CurrentUser = new User(rollNumber, ID, group);
         }
         else
         {
-            CurrentUser.RollNumber = name;
-            CurrentUser.ID = rollNo;
+            CurrentUser.RollNumber = rollNumber;
+            CurrentUser.ID = ID;
             CurrentUser.Group = group;
         }
     }
@@ -76,7 +76,7 @@ public class UserManager : MonoBehaviour
                 {
                     EventPosition = _playerTransform.position,
                     EventRotation = _playerTransform.rotation.eulerAngles,
-                    Time = DateTimeOffset.Now.ToUnixTimeSeconds(),
+                    Time = DateTimeOffset.Now.ToUnixTimeMilliseconds(),
                     PlayerSeated = _playerController.isSitting,
                     EventType = EventDataType.RealtimeData,
                     EarthquakeMagnitude = EarthquakeManager._instance.EarthquakeMagnitude,
