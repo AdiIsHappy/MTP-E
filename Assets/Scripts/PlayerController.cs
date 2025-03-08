@@ -57,13 +57,13 @@ public class PlayerController : MonoBehaviour
     {
         if (other.CompareTag("SittingZone"))
         {
+            _isInSittingZone = true;
             UserManager._instance.LogEvent(
                 EventDataType.EntryUnderTable,
                 "Player entered the sitting zone.",
                 other.transform.position,
                 other.transform.rotation.eulerAngles
             );
-            _isInSittingZone = true;
         }
     }
 
@@ -71,13 +71,13 @@ public class PlayerController : MonoBehaviour
     {
         if (other.CompareTag("SittingZone"))
         {
+            _isInSittingZone = false;
             UserManager._instance.LogEvent(
                 EventDataType.ExitUnderTable,
                 "Player exited the sitting zone.",
                 other.transform.position,
                 other.transform.rotation.eulerAngles
             );
-            _isInSittingZone = false;
         }
     }
 
@@ -106,7 +106,7 @@ public class PlayerController : MonoBehaviour
         if (isSitting && _isInSittingZone)
             return;
         if (
-            rightTriggerAction.action.triggered
+            rightTriggerAction.action.triggered 
             || leftTriggerAction.action.triggered
             || Keyboard.current[Key.Space].wasPressedThisFrame
         )
