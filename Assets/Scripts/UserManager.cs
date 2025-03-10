@@ -135,15 +135,13 @@ public class UserManager : MonoBehaviour
         if (CurrentUser.RollNumber.IsNullOrEmpty())
             return;
 
-        string directoryPath =
-            Application.persistentDataPath + "/UserData" + $"/{CurrentUser.Group}";
+        string directoryPath = Application.dataPath + "/UserData" + $"/{CurrentUser.Group}";
         if (!System.IO.Directory.Exists(directoryPath))
         {
             System.IO.Directory.CreateDirectory(directoryPath);
         }
 
-        string path =
-            directoryPath + "/" + CurrentUser.RollNumber + "_" + CurrentUser.ID + ".csv";
+        string path = directoryPath + "/" + CurrentUser.RollNumber + "_" + CurrentUser.ID + ".csv";
         Debug.Log(path);
         string csv =
             "Time,Score,Penalty,ID,RollNumber,Group,EventType,EventDescription,EventPosition(X Y Z),EventRotation(X Y Z),EarthquakeMagnitude,PlayerSeated\n";
@@ -156,6 +154,7 @@ public class UserManager : MonoBehaviour
         }
         System.IO.File.WriteAllText(path, csv);
     }
+
     private string FormatUnixTimestamp(long unixTimestamp)
     {
         DateTimeOffset dateTimeOffset = DateTimeOffset.FromUnixTimeSeconds(unixTimestamp);

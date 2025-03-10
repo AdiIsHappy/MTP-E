@@ -48,7 +48,7 @@ public class MenuController : MonoBehaviour
             Debug.LogError("Please fill all the fields to start the simulation.");
             return;
         }
-        UserManager._instance.AddeUserInfo(_IDField.value, _rollNoField.value, _groupField.value);
+        UserManager._instance.AddeUserInfo(_rollNoField.value, _IDField.value, _groupField.value);
         SceneManager.LoadScene("TrainingGround");
     }
 
@@ -59,7 +59,7 @@ public class MenuController : MonoBehaviour
             Debug.LogError("Please fill all the fields to start the simulation.");
             return;
         }
-        UserManager._instance.AddeUserInfo( _rollNoField.value, _IDField.value, _groupField.value);
+        UserManager._instance.AddeUserInfo(_rollNoField.value, _IDField.value, _groupField.value);
         SceneManager.LoadScene("Classroom");
     }
 }
