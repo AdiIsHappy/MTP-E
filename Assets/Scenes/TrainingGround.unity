@@ -9457,6 +9457,14 @@ PrefabInstance:
       propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3052706162406034356, guid: 2542eb322c34841459797cea437341b7, type: 3}
+      propertyPath: m_AttachTransform
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 3052706162406034356, guid: 2542eb322c34841459797cea437341b7, type: 3}
+      propertyPath: m_RayOriginTransform
+      value: 
+      objectReference: {fileID: 0}
     - target: {fileID: 3656952796566889337, guid: 2542eb322c34841459797cea437341b7, type: 3}
       propertyPath: m_FacingExited.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
@@ -9709,6 +9717,14 @@ PrefabInstance:
       propertyPath: m_SizeDelta.y
       value: 46
       objectReference: {fileID: 0}
+    - target: {fileID: 5365192734195784357, guid: 2542eb322c34841459797cea437341b7, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5365192734195784357, guid: 2542eb322c34841459797cea437341b7, type: 3}
+      propertyPath: m_GazeInteractor
+      value: 
+      objectReference: {fileID: 0}
     - target: {fileID: 6761203344443627832, guid: 2542eb322c34841459797cea437341b7, type: 3}
       propertyPath: m_Enabled
       value: 0
@@ -9757,10 +9773,13 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 5365192734195784357, guid: 2542eb322c34841459797cea437341b7, type: 3}
     m_RemovedGameObjects:
     - {fileID: 4394428842817269484, guid: 2542eb322c34841459797cea437341b7, type: 3}
     - {fileID: 1822985751733847764, guid: 2542eb322c34841459797cea437341b7, type: 3}
+    - {fileID: 6167039419786173513, guid: 2542eb322c34841459797cea437341b7, type: 3}
+    - {fileID: 6760630615036363200, guid: 2542eb322c34841459797cea437341b7, type: 3}
     m_AddedGameObjects:
     - targetCorrespondingSourceObject: {fileID: 1130220832441081653, guid: 2542eb322c34841459797cea437341b7, type: 3}
       insertIndex: -1

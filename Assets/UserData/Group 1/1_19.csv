@@ -1,0 +1,22 @@
+Time,Score,Penalty,ID,RollNumber,Group,EventType,EventDescription,EventPosition(X Y Z),EventRotation(X Y Z),EarthquakeMagnitude,PlayerSeated
+1741770225367,0, 0,19,1,Group 1,,,,,,
+1741770052893,,,,,,TrainingStarted,Training Started,0 0 0,0 0 0,0,False
+1741770075991,,,,,,EntryUnderTable,Player entered the sitting zone.,5.227 0.683 2.29,0 270.0002 0,0,False
+1741770078834,,,,,,ExitUnderTable,Player exited the sitting zone.,5.227 0.683 2.29,0 270.0002 0,0,False
+1741770094198,,,,,,ItemPicked,Item Book_07 Picked.,4.476782 0.7161504 -3.015202,270 0.1730505 0,0,False
+1741770096119,,,,,,ItemDropped,Item Book_07 Dropped.,4.738584 1.012992 -3.084463,352.366 187.7064 174.566,0,False
+1741770098793,,,,,,ItemPicked,Item Book_07 Picked.,4.754788 0.9261798 -3.108644,359.8864 185.716 179.9762,0,False
+1741770100379,,,,,,ItemDropped,Item Book_07 Dropped.,5.668125 0.9372838 -1.750782,3.196388 193.325 186.1643,0,False
+1741770110596,,,,,,ItemPicked,Item Book_07 Picked.,5.878386 0.006268104 -0.5986096,89.67255 117.8787 272.7502,0,False
+1741770113117,,,,,,ItemDropped,Item Book_07 Dropped.,5.92292 0.981609 -1.222074,36.17203 105.2083 190.2314,0,False
+1741770113261,,,,,,ItemPicked,Item Book_07 Picked.,5.932962 0.8623176 -1.204255,37.7775 105.0983 191.6921,0,False
+1741770123967,,,,,,ItemDropped,Item Book_07 Dropped.,12.05265 0.9937592 -1.102129,34.44865 101.4974 192.2609,0,False
+1741770136195,,,,,,ItemPicked,Item Book_10 Picked.,4.571947 0.7161515 -1.593474,270 0.2833828 0,0,False
+1741770143902,,,,,,ItemDropped,Item Book_10 Dropped.,12.04351 0.8779998 -1.479689,294.816 266.9916 245.033,0,False
+1741770152887,,,,,,ItemPicked,Item Book_42 Picked.,4.504169 0.7161545 -0.119512,270 359.1682 0,0,False
+1741770162649,,,,,,ItemDropped,Item Book_42 Dropped.,12.06941 0.8657277 -1.594305,289.812 266.6831 240.4935,0,False
+1741770197365,,,,,,ItemPicked,Item Book_42 Picked.,12.64618 -0.03003737 -1.518698,344.0925 243.1214 270.0118,0,False
+1741770199827,,,,,,ItemDropped,Item Book_42 Dropped.,12.18204 0.6826282 -1.401334,20.84258 236.132 270.9763,0,False
+1741770200711,,,,,,TrainingEnded,Training Ended,0 0 0,0 0 0,0,False
+1741770204807,,,,,,TrainingStarted,Training Started,0 0 0,0 0 0,0,False
+1741770225064,,,,,,TrainingEnded,Training Ended,0 0 0,0 0 0,0,False

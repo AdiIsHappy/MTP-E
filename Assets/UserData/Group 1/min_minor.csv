@@ -1,0 +1,4 @@
+Time,Score,Penalty,ID,RollNumber,Group,EventType,EventDescription,EventPosition(X Y Z),EventRotation(X Y Z),EarthquakeMagnitude,PlayerSeated
+1741769901433,0, 0,minor,min,Group 1,,,,,,
+1741769896141,,,,,,TrainingStarted,Training Started,0 0 0,0 0 0,0,False
+1741769901123,,,,,,TrainingEnded,Training Ended,0 0 0,0 0 0,0,False
