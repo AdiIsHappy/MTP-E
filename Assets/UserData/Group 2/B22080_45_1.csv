@@ -1,0 +1,14 @@
+Time,Score,Penalty,ID,RollNumber,Group,EventType,EventDescription,EventPosition(X Y Z),EventRotation(X Y Z),EarthquakeMagnitude,PlayerSeated
+1742211692608,0, 0,45,B22080,Group 2,,,,,,
+1742211613278,,,,,,TrainingStarted,Training Started,0 0 0,0 0 0,0,False
+1742211625355,,,,,,EntryUnderTable,Player entered the sitting zone.,5.227 0.683 2.29,0 270.0002 0,0,False
+1742211627421,,,,,,ExitUnderTable,Player exited the sitting zone.,5.227 0.683 2.29,0 270.0002 0,0,False
+1742211633689,,,,,,ItemPicked,Item Book_10 Picked.,4.571947 0.7161515 -1.593474,270 0.2833828 0,0,False
+1742211640265,,,,,,ItemDropped,Item Book_10 Dropped.,12.02413 0.8051984 -1.509284,286.2123 221.5931 306.5756,0,False
+1742211647989,,,,,,ItemPicked,Item Book_42 Picked.,4.516242 0.7161685 -0.1335929,270.0198 359.5267 0,0,False
+1742211656752,,,,,,ItemDropped,Item Book_42 Dropped.,11.93833 0.7759929 -1.761603,293.679 178.4962 307.7095,0,False
+1742211657273,,,,,,ItemPicked,Item Book_42 Picked.,11.94334 0.8158184 -1.762678,270 128.0888 0,0,False
+1742211657885,,,,,,ItemDropped,Item Book_42 Dropped.,12.08619 0.8610675 -1.562883,285.2457 331.184 166.5975,0,False
+1742211665147,,,,,,ItemPicked,Item Book_07 Picked.,4.476782 0.7161504 -3.015202,270 0.1730505 0,0,False
+1742211670912,,,,,,ItemDropped,Item Book_07 Dropped.,11.95018 0.7763671 -1.279508,307.785 191.5032 4.030256,0,False
+1742211692281,,,,,,TrainingEnded,Training Ended,0 0 0,0 0 0,0,False

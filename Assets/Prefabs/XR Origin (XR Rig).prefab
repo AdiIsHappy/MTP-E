@@ -8665,8 +8665,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rightTriggerAction: {fileID: 1656636384762879675, guid: c348712bda248c246b8c49b3db54643f, type: 3}
   leftTriggerAction: {fileID: -3868384094435171048, guid: c348712bda248c246b8c49b3db54643f, type: 3}
-  defaultHeight: 1.36
-  sittingHeight: 0.4
+  defaultHeight: 1.6
+  sittingHeight: 0.8
   sittingDuration: 0.1
   isSitting: 0
 --- !u!114 &6775069400971002998

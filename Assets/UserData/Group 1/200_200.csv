@@ -1,0 +1,4 @@
+Time,Score,Penalty,ID,RollNumber,Group,EventType,EventDescription,EventPosition(X Y Z),EventRotation(X Y Z),EarthquakeMagnitude,PlayerSeated
+1742197791341,0, 0,200,200,Group 1,,,,,,
+1742197773777,,,,,,TrainingStarted,Training Started,0 0 0,0 0 0,0,False
+1742197791034,,,,,,TrainingEnded,Training Ended,0 0 0,0 0 0,0,False
