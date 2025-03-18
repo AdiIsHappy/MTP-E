@@ -83,6 +83,13 @@ public class PlayerController : MonoBehaviour
 
     public void ItemSelected(SelectEnterEventArgs args)
     {
+        ObervableItem item = args.interactableObject.transform.GetComponentInChildren<ObervableItem>();
+        if (item != null)
+        {
+            Debug.Log($"Item {item.transform.name} Picked.");
+
+            item.ObjectSelected();
+        }
         UserManager._instance.LogEvent(
             EventDataType.ItemPicked,
             $"Item {args.interactableObject.transform.name} Picked.",
@@ -93,6 +100,12 @@ public class PlayerController : MonoBehaviour
 
     public void ItemDropped(SelectExitEventArgs args)
     {
+        ObervableItem item = args.interactableObject.transform.GetComponentInChildren<ObervableItem>();
+        if (item != null)
+        {
+            Debug.Log($"Item {item.transform.name} Dropped.");
+            item.ObjectDeselected();
+        }
         UserManager._instance.LogEvent(
             EventDataType.ItemDropped,
             $"Item {args.interactableObject.transform.name} Dropped.",
@@ -100,6 +113,7 @@ public class PlayerController : MonoBehaviour
             args.interactableObject.transform.rotation.eulerAngles
         );
     }
+    
 
     private void Update()
     {

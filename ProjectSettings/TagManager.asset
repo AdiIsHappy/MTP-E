@@ -8,6 +8,7 @@ TagManager:
   - SittingZone
   - Book
   - FallingLamp
+  - ProgressCompleted
   layers:
   - Default
   - TransparentFX

@@ -21,22 +21,13 @@ public class ScoreManager : MonoBehaviour
     {
         bookPlacement.BookPlaced.AddListener(OnBookPlaced);
         bookPlacement.BookRemoved.AddListener(OnBookRemoved);
-        var interactors = GetComponentsInChildren<NearFarInteractor>();
-        foreach (var interactor in interactors)
-        {
-            interactor.selectEntered.AddListener(OnItemPicked);
-        }
     }
 
     void OnDisable()
     {
         bookPlacement.BookPlaced.RemoveListener(OnBookPlaced);
         bookPlacement.BookRemoved.RemoveListener(OnBookRemoved);
-        var interactors = GetComponentsInChildren<NearFarInteractor>();
-        foreach (var interactor in interactors)
-        {
-            interactor.selectEntered.RemoveListener(OnItemPicked);
-        }
+        ObervableItem.ItemObserved += OnItemObserved;
     }
 
     void Start()
@@ -92,18 +83,17 @@ public class ScoreManager : MonoBehaviour
         }
     }
 
-    void OnItemPicked(SelectEnterEventArgs args)
+    void OnItemObserved(GameObject observedItem)
     {
         if (
-            UserManager._instance.CurrentUser.Group == "Group 1"
-            || UserManager._instance.CurrentUser.Group == "Group 2"
+            UserManager._instance.CurrentUser.Group == "Group 3"
+            || UserManager._instance.CurrentUser.Group == "Group 4"
         )
-            return;
-        if (!_pickedItems.Contains(args.interactableObject))
         {
             score += _scoreDictionary["ItemObserved"];
-            _pickedItems.Add(args.interactableObject);
-            UserManager._instance.CurrentUser.Score = score;
+            Debug.Log(observedItem.name);
         }
+        
+        
     }
 }

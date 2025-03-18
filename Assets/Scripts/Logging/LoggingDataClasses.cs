@@ -64,4 +64,5 @@ public enum EventDataType
     TrainingEnded,
     SimulationStarted,
     SimulationEnded,
+    ItemObserved
 }
